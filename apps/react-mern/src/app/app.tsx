@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Message } from '@react-mern/api-interfaces';
+import { Button } from '@material-ui/core';
 
 export const App = () => {
-  const [m, setMessage] = useState<Message>({ message: '' });
+  const [m, setMessage] = useState<Message>({
+    message: '',
+  });
+
+  const kokot = 'ja jsem velký kokot';
 
   useEffect(() => {
     fetch('/api')
@@ -11,16 +16,11 @@ export const App = () => {
   }, []);
 
   return (
-    <>
-      <div style={{ textAlign: 'center' }}>
-        <h1>Welcome to react-mern!</h1>
-        <img
-          width="450"
-          src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-        />
-      </div>
-      <div>{m.message}</div>
-    </>
+    <div>
+      <h2 className="title">Já jsem kokot</h2>
+      <p> {m.message} </p>
+      <Button> {kokot} </Button>
+    </div>
   );
 };
 
